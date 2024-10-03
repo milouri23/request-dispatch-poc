@@ -1,4 +1,6 @@
-﻿using ConsoleApp.RequestDispatcher.Iterations;
+﻿using ConsoleApp.RequestDispatcher.Dispatchers;
+using ConsoleApp.RequestDispatcher.Extensions;
+using ConsoleApp.RequestDispatcher.Iterations;
 using ConsoleApp.RequestDispatcher.Services;
 using ConsoleLoopFramework.Core;
 using ConsoleLoopFramework.Extensions;
@@ -12,6 +14,7 @@ public static class Program
     {
         using var serviceProvider = new ServiceCollection()
             .AddSingleton<IRandomDigitService, RandomDigitService>()
+            .AddDispatcher<StupidDispatcher>()
             .AddConsoleLoop<DigitGreeterIteration>()
             .BuildServiceProvider();
 
